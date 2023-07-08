@@ -3,6 +3,7 @@ import threading
 from urllib.parse import urlparse
 import os
 
+
 def download(link, directory, filename):
     path = urlparse(link).path
     ext = os.path.splitext(path)[1]
@@ -19,6 +20,7 @@ def download(link, directory, filename):
             for chunk in r.iter_content(1024):
                 if chunk:
                     file.write(chunk)
+
 
 def createthread(nb_thread, link, directory, filename):
     if nb_thread > 99:
